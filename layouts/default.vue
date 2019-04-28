@@ -1,8 +1,19 @@
 <template>
     <div>
+        <v-header></v-header>
         <nuxt />
     </div>
 </template>
+
+<script>
+    import VHeader from '@/components/common/header';
+
+    export default {
+        components: {
+            VHeader
+        },
+    }
+</script>
 
 <style>
     html {

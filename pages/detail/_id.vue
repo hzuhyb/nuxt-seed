@@ -6,7 +6,7 @@
                 detail page
             </h1>
             <h2 class="subtitle">
-                Welcome to the iView + Nuxt.js template
+                <nuxt-link to="/">go home page</nuxt-link>
             </h2>
         </div>
     </section>
