@@ -44,6 +44,10 @@ module.exports = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
+        '@nuxtjs/proxy'
+    ],
+    proxy: [
+        ['/v1', { target: 'https://bitasset.info' }]
     ],
     /*
     ** Axios module configuration

@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="wrap">
         <div>
             <logo />
             <h1 class="title">
@@ -14,7 +14,41 @@
 
 <script>
     import Logo from '~/components/Logo.vue'
+    import Request from '@/service'
+
     export default {
+        data () {
+            return {
+                
+            }
+        },
+        head () {
+            return {
+                title: '首页',
+                meta: [
+                    { hid: 'home custom title', name: 'home', content: 'home custom title description' }
+                ]
+            }
+        },
+        async asyncData ({ store, error }) {
+            console.log('asyncdata')
+            let params = {
+                locale: "cn",
+                start_num: 0,
+                page_size: 15,
+                tag_name: "latest"
+            };
+            let result = await Request.post('/v1/product/listproducts',  params);
+        },
+        async fetch ({ store, params }) {
+            console.log('fetch')
+        },
+        mounted () {
+            console.log('mounted')
+        },
+        methods: {
+
+        },
         components: {
             Logo
         }
@@ -22,7 +56,7 @@
 </script>
 
 <style>
-    .container {
+    .wrap {
         margin: 0 auto;
         min-height: 100vh;
         display: flex;

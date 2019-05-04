@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="wrap">
         <div>
             <logo />
             <h1 class="title">
@@ -22,7 +22,7 @@
 </script>
 
 <style>
-    .container {
+    .wrap {
         margin: 0 auto;
         min-height: 100vh;
         display: flex;
