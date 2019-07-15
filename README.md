@@ -17,6 +17,9 @@ $ npm start
 
 # generate static project
 $ npm run generate
+
+# start pm
+$ pm2 start pm2.json
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
