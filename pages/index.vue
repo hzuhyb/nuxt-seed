@@ -26,18 +26,21 @@
             }
         },
         async asyncData ({ store, error }) {
-            console.log('asyncdata')
-            let params = {
-                locale: "cn",
-                start_num: 0,
-                page_size: 15,
-                tag_name: "latest"
-            };
-            let result = await Request.post('/v1/product/listproducts',  params);
-            return { projects: result.data }
+            if (process.server) {
+                console.log('asyncdata')
+                let params = {
+                    locale: "cn",
+                    start_num: 0,
+                    page_size: 15,
+                    tag_name: "latest"
+                };
+                let result = await Request.post('/v1/product/listproducts',  params);
+                return { projects: result.data }
+            }
         },
-        async fetch ({ store, params }) {
+        async fetch ({ store }) {
             console.log('fetch')
+            
         },
         mounted () {
             console.log('mounted')
