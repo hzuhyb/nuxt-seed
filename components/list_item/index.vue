@@ -38,11 +38,6 @@
                     <i class="icon comment_icon"></i>
                     <span class="btn_txt">{{ item.comment_count }}</span>
                 </a>
-                <ul class="tag">
-                    <li class="tag_item">
-                        {{ item.tags[0] }}
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -68,12 +63,39 @@
 </script>
 
 <style lang="less">
+    @import "../../assets/css/var.less";
+
     .item {
         margin-bottom: 10px;
         padding: 20px;
         background-color: #fff;
         border: 1px solid #f3f3f3;
         border-radius: 4px;
+        &.ish5 {
+            .item_intro {
+                position:relative;
+                line-height:1.4em;
+                /* 3 times the line-height to show 3 lines */
+                max-height: 2.8em;
+                overflow:hidden;
+                &:after {
+                    content: " ";
+                    font-weight: bold;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    padding: 0 20px 1px 45px;
+                }
+            }
+        }
+    }
+    .first_item {
+        border: 1px solid #f3f3f3;
+        margin-bottom: 10px;
+        .item {
+            margin-bottom: 0;
+            border: none;
+        }
     }
     .item_user {
         margin-bottom: 5px;
@@ -100,15 +122,18 @@
             border-radius: 50%;
         }
         .info_name {
+            color: @title-color;
             line-height: 14px;
         }
         .time {
             margin-left: 8px;
+            color: @minor-color;
             font-size: 13px;
         }
     }
     .user_opinion {
         text-align: left;
+        color: @title-color;
     }
     .item_inner {
         display: flex;
@@ -137,6 +162,9 @@
         border-bottom: 1px solid #f3f3f3;
         border-radius: 0;
         background-color: transparent;
+        &:last-child {
+            border-bottom: 1px solid transparent;
+        }
     }
     .item_link {
         display: inline-block;
@@ -169,13 +197,18 @@
     .info_title {
         font-size: 18px;
         font-weight: 500;
+        color: @title-color;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 100%;
         overflow: hidden;
+        &:hover {
+            color: @primary-color;
+        }
     }
     .item_intro {
         margin: 5px 0 0;
+        color: @title-color;
     }
     .btn_controls {
         margin-top: 10px;
@@ -200,13 +233,19 @@
             background: #fff;
             fill: #999;
             &:hover > .heart_icon {
-                // background: url(./images/like_hover.png);
+                background: url(./images/like_hover.png);
                 background-size: 100%;
+            }
+            &:hover > .btn_txt {
+                color: @primary-color;
             }
             &.active {
                 .heart_icon {
-                    // background: url(./images/like_active.png);
+                    background: url(./images/like_active.png);
                     background-size: 100%;
+                }
+                .btn_txt {
+                    color: @primary-color;
                 }
             }
         }
@@ -216,12 +255,16 @@
         }
         .btn_comment {
             &:hover > .comment_icon {
-                // background: url(./images/comment_hover.png);
+                background: url(./images/comment_hover.png);
                 background-size: 100%;
+            }
+            &:hover > .btn_txt {
+                color: @primary-color;
             }
         }
         .btn_txt, .income_txt {
             font-size: 14px;
+            color: @minor-color;
         }
         .icon {
             display: inline-block;
@@ -231,19 +274,22 @@
             height: 14px;
         }
         .income_icon {
-            // background: url(./images/income.png);
+            background: url(./images/income.png);
             background-size: 100%;
         }
         .heart_icon {
-            // background: url(./images/like.png);
+            background: url(./images/like.png);
             background-size: 100%;
         }
         .comment_icon {
-            // background: url(./images/comment.png);
+            background: url(./images/comment.png);
             background-size: 100%;
         }
         .tag {
             margin-left: 10px;
+        }
+        .more_tag {
+            color: @minor-color;
         }
     }
 </style>

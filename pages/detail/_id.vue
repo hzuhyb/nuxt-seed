@@ -21,7 +21,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .wrap {
         margin: 0 auto;
         min-height: 100vh;
